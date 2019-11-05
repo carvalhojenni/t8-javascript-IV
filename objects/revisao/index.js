@@ -84,35 +84,6 @@ function Crianca(nome, idade, altura) {
         }
     }
 
-    const c1 = new Crianca('bete', 6, 1.1)
-    console.log(`${c1.altura} tem ${c1.altura} e ${c1.podeBrincar() ? 'pode brincar' : 'não pode brincar'}`);
-
-    const c2 = new Crianca('Carlos', 4, 0.8)
-    console.log(`${c2.altura} tem ${c2.altura} e ${c2.podeBrincar() ? 'pode brincar' : 'não pode brincar'}`);
-
-
-
-
-
-    function professor() {
-        this.name = nome
-        this.sobrenome = sobrenome
-        this.materia = materia
-    }
-    professor.prototype.dizMateria = function() {
-        return `A materia é: ${this.materia}`
-    }
-
-    let js3 = new professor('Cintia', 'fumi', 'Js3')
-    console.log(js3.dizMateria());
-
-    let js4 = new professor('Lydia', 'Rodrigues', 'Js4')
-    console.log(js4.dizMateria());
-
-
-    js4.dizMateria = function() {
-        return `A professora é: ${this.nome} e a materia é: ${this.materia}`
-    }
     const c1 = new Crianca("Bete", 6, 1.1)
     console.log(`${c1.nome} tem ${c1.altura} e ${c1.podeBrincar() ? 'pode brincar' : 'não pode brincar'}`)
     c1.especifico = true
@@ -148,8 +119,7 @@ function Crianca(nome, idade, altura) {
     obj3[nomeAttr] = valorAttr
     console.log(obj3)
     const obj4 = {
-        [nomeAttr]: valorAttr
-    }
+        [nomeAttr]: valorAttr }
     console.log(obj4)
 
     const crianca4 = {
@@ -228,27 +198,21 @@ function Crianca(nome, idade, altura) {
         this.corFavorita = corFavorita
     }
 
-    let mae = new Pessoa("Ana", 35, "vermelho")
-    let tio = new Pessoa("Cleber", 49, "rosa")
+    // let mae = new Pessoa("Ana", 35, "vermelho")
+    // let tio = new Pessoa("Cleber", 49, "rosa")
 
-    Pessoa.prototype.apresentacao = function() {
-        return `O nome da pessoa é: ${this.nome}`
-    }
-    console.dir(Pessoa)
+    // Pessoa.prototype.apresentacao = function() {
+    //     return `O nome da pessoa é: ${this.nome}`
+    // }
+    // console.dir(Pessoa)
 
-    console.log(mae.apresentacao())
-    console.log(tio.apresentacao())
-    mae.apresentacao = function() {
-        return `apresentação especial da mãe: ${this.nome} e tenho ${this.idade}`
-    }
-    console.log(mae.apresentacao())
+    // console.log(mae.apresentacao())
+    // console.log(tio.apresentacao())
+    // mae.apresentacao = function(){
+    //     return `apresentação especial da mãe: ${this.nome} e tenho ${this.idade}`
+    // }
+    // console.log(mae.apresentacao())
 
-
-    function Pessoa(nome, idade, corFavorita) {
-        this.nome = nome
-        this.idade = idade
-        this.corFavorita = corFavorita
-    }
     //nome, sobrenome, materia
     function Professor(nome, sobrenome, materia) {
         this.nome = nome
@@ -270,5 +234,32 @@ function Crianca(nome, idade, altura) {
     }
     console.log(js4.dizMateria())
 
-    console.dir(Professor.prototype)
-    console.dir(js4.__proto__)
+    const avo = { attr1: 'A' }
+    const mae = { __proto__: avo, attr2: 'B', attr3: 'E' }
+    const filha = { __proto__: mae, attr3: 'C' }
+    console.log(filha.attr1, filha.attr2, filha.attr3)
+
+    class Avo {
+        constructor(sobrenome = "Rodrigues") {
+            this.sobrenome = sobrenome
+        }
+    }
+
+    class Mae extends Avo {
+        constructor(sobrenome, profissao = "Cineasta") {
+            super(sobrenome)
+            this.profissao = profissao
+        }
+    }
+
+    class Filha extends Mae {
+        constructor() {
+            super('Silva')
+        }
+    }
+
+    const novaFilha = new Filha
+    novaFilha.profissao = "Atriz"
+    console.log(novaFilha)
+    const novaMae = new Mae
+    console.log(novaMae)
