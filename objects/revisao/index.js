@@ -7,31 +7,31 @@
 // delete crianca.idade
 
 
-const crianca2 = {
-    nome: 'Paulo',
-    idade: 6,
-    endereco: {
-        logradouro: 'Rua dos bobos',
-        numero: 0,
-        referencia: [{
-            endereco: {
-                logradouro: 'Rua dos bobos',
-                numero: 2,
-                descricao: 'mercado'
-            }
-        }]
-    },
-    responsaveis: [{
-        nome: 'Tereza',
-        telefone: '00000000',
-        parentesco: 'tia'
-    }],
-    podeBrincar: false
-}
-console.log(crianca2);
-delete crianca2.idade
-console.log(crianca2);
-delete crianca2.endereco
+// const crianca2 = {
+//     nome: 'Paulo',
+//     idade: 6,
+//     endereco: {
+//         logradouro: 'Rua dos bobos',
+//         numero: 0,
+//         referencia: [{
+//             endereco: {
+//                 logradouro: 'Rua dos bobos',
+//                 numero: 2,
+//                 descricao: 'mercado'
+//             }
+//         }]
+//     },
+//     responsaveis: [{
+//         nome: 'Tereza',
+//         telefone: '00000000',
+//         parentesco: 'tia'
+//     }],
+//     podeBrincar: false
+// }
+// console.log(crianca2);
+// delete crianca2.idade
+// console.log(crianca2);
+// delete crianca2.endereco
 
 
 function Crianca(nome, idade, altura) {
@@ -148,7 +148,8 @@ function Crianca(nome, idade, altura) {
     obj3[nomeAttr] = valorAttr
     console.log(obj3)
     const obj4 = {
-        [nomeAttr]: valorAttr }
+        [nomeAttr]: valorAttr
+    }
     console.log(obj4)
 
     const crianca4 = {
