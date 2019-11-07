@@ -1,11 +1,13 @@
-.container{
+.container {
     width: 100%;
     text-align: center;
 }
-.body{
+
+.body {
     display: contents;
 }
-#spinner{
+
+#spinner {
     display: none;
     position: fixed;
     width: 100%;

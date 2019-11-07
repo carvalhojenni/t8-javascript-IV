@@ -9,11 +9,11 @@ const getTurma = (letra, callback) => {
                 resultado += dados
             })
             res.on('end', () => {
-            try {
-                resolve(JSON.parse(resultado))
-            }catch(e){
-                reject(e)
-            }
+                try {
+                    resolve(JSON.parse(resultado))
+                } catch (e) {
+                    reject(e)
+                }
             })
         })
     })
@@ -22,18 +22,17 @@ const getTurma = (letra, callback) => {
 
 let nomes = []
 getTurma('A').then(alunos => {
-    nomes = nomes.concat(alunos.map( a => `A: ${a.nome}`))
+    nomes = nomes.concat(alunos.map(a => `A: ${a.nome}`))
     getTurma('B').then(alunos => {
         nomes = nomes.concat(alunos.map(b => `B: ${b.nome}`))
         getTurma('C').then(alunos => {
-            nomes =  nomes.concat(alunos.map( c => `C: ${c.nome}`))
+            nomes = nomes.concat(alunos.map(c => `C: ${c.nome}`))
             console.log(nomes)
         })
     })
 })
 
 Promise.all([getTurma('A'), getTurma('B'), getTurma('C')]).then(
-    turmas => [].concat(...turmas)).then(alunos => alunos.map( aluno => 
-        aluno.nome)).then(nomes => console.log(nomes)).catch(e => console.log(e.message))
+    turmas => [].concat(...turmas)).then(alunos => alunos.map(aluno =>
+    aluno.nome)).then(nomes => console.log(nomes)).catch(e => console.log(e.message))
 getTurma('D').catch(e => console.log(e.message))
-
