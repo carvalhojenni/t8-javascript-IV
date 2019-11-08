@@ -27,8 +27,6 @@ selecionaCartaAleatoria = cartas => {
     return cartas[numeroAleatorio]
 }
 
-
-
 async function carregaCarta() {
     loading.style.display = 'block'
     try {
